@@ -17,3 +17,32 @@ frontend = React + Tailwind CSS + Redux
 backend  = Node + Express + Mongo 
 devops - aws + docker + Kubernnetes + cicd
 hosting - go daddy + aws
+
+
+-----------------------------------------------------
+
+Backend
+
+- models
+1. user model
+    - id
+    - name
+    - email
+    - password
+2. todo model
+    - id
+    - title
+    - body
+    - author
+    - date
+
+- routes 
+1. user routes
+    -  login + register
+2. todo routes
+    - create + delete + edit
+    - Get all todo
+
+- controller
+1. user controller 
+    - login 
