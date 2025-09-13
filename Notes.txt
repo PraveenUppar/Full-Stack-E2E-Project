@@ -1,0 +1,19 @@
+Steps/Phases for projects
+
+1. Build the backend
+2. Build the frontend
+3. Connect both backend and frontend
+4. Docker
+5. Kubernnetes or EC2
+6. CICD
+7. TLS 
+8. DNS 
+9. Hosted
+10. Readme and Docunmnets
+
+Tech Stack 
+
+frontend = React + Tailwind CSS + Redux 
+backend  = Node + Express + Mongo 
+devops - aws + docker + Kubernnetes + cicd
+hosting - go daddy + aws
