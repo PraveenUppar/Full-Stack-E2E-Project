@@ -20,8 +20,8 @@ app.get("/", (req, res) => {
 import authRoutes from "./routes/authRoutes.js";
 app.use("/api/auth", authRoutes);
 
-// import todoRoutes from "./routes/todoRoutes.js";
-// app.use("/api/todo", todoRoutes);
+import todoRoutes from "./routes/todoRoutes.js";
+app.use("/api/todo", todoRoutes);
 
 app.listen(port, () => {
   connectDB();
