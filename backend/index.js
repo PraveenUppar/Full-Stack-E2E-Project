@@ -8,19 +8,20 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT;
+const client_URL = process.env.FRONTEND_URL;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 // app.use(cors());
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+  res.header("Access-Control-Allow-Origin", client_URL);
   next();
 });
 
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: [client_URL],
     methods: "GET, POST, PATCH, DELETE, PUT",
     credentials: true,
   })

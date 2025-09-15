@@ -4,13 +4,42 @@ Steps/Phases for projects
 2. Build the frontend -- DONE
 3. Connect both backend and frontend -- DONE
 
-4. Docker
-5. Kubernnetes or EC2
+4. Docker -- DONE
+- Docker File - Frontend and backend -- DONE
+    - create frontend and backend Docker File 
+    - build the docker file to images
+    - Run the images in container with port mapping
+- Docker compose -- DONE
+    - same as above but in a single file and command
+- Push the image to Docker Registery -- DONE
+    - Tag the image
+    - Push the image
+- Local Docker Deployment -- DONE
+
+
+5. Kubernnetes
+- Local Kubernnetes Cluster
+- AWS EKS Cluster
+
 6. CICD
-7. TLS 
-8. DNS 
-9. Hosted
-10. Readme and Docunmnets
+- Simple EC2 insance Deployment
+- Development Deployment with jenkins and docker
+- Production Deployment with Jenkins and AWS EKS
+
+7. TLS and Domain Name
+
+
+Types of Deployment 
+
+1. Local Deployment -- DONE 
+2. Local Docker Deployment
+3. AWS ECS Deployment
+4. Local Kubernnetes Deployment
+5. AWS EKS Deployment
+6. EC2 Instance Deployment
+7. Jenkins + AWS ECR
+8. Jenkins + AWS EKS
+
 
 Tech Stack 
 
