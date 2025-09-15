@@ -1,48 +1,36 @@
-// src/pages/LoginPage.jsx
-
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { BACKEND_URL } from "../constants.js";
 
 const LoginPage = () => {
-  // State to hold form data (email, password)
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  // State to hold any error messages from the API
+  const API_URL = `${BACKEND_URL}/api/auth/login`;
+
   const [error, setError] = useState("");
 
-  // Hook from react-router-dom to programmatically navigate
   const navigate = useNavigate();
 
-  // Handles changes in input fields
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handles the form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default browser form submission
-    setError(""); // Clear previous errors
+    e.preventDefault();
+    setError("");
 
     try {
-      // Send a POST request to the backend login endpoint
-      const response = await axios.post(
-        "http://localhost:3000/api/auth/login",
-        formData
-      );
+      const response = await axios.post(API_URL, formData);
 
-      // A successful login will return a 200 OK status.
-      // The JWT is automatically set as a cookie by the browser.
       localStorage.setItem("token", response.data.token);
       if (response.status === 200) {
-        // Redirect the user to the home page
         navigate("/");
       }
     } catch (err) {
-      // Set an error message if the API call fails (e.g., wrong credentials)
       setError(
         err.response?.data?.message ||
           "Login failed. Please check your credentials."
@@ -52,8 +40,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
-      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
+    <div className="flex items-center justify-center min-h-screen bg-black ">
+      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md ">
         <h2 className="text-2xl font-bold text-center text-gray-900">
           Sign in to your account
         </h2>
@@ -97,7 +85,6 @@ const LoginPage = () => {
             />
           </div>
 
-          {/* Display error message if it exists */}
           {error && <p className="text-sm text-red-600">{error}</p>}
 
           <div>
@@ -109,6 +96,12 @@ const LoginPage = () => {
             </button>
           </div>
         </form>
+        <div className="flex justify-center gap-2">
+          <span>Don't have an Account ? </span>
+          <Link to="/register" className="text-blue-600 ">
+            Register
+          </Link>
+        </div>
       </div>
     </div>
   );

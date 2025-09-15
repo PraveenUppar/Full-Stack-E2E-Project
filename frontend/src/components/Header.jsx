@@ -1,44 +1,28 @@
-import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Clear the token
-    navigate("/login"); // Redirect to login page
+    localStorage.removeItem("token");
+    navigate("/login");
   };
-
-  const handleLogin = () => {
-    navigate("/login"); // Redirect to login page
-  };
-
-  const isLoggedIn = !!localStorage.getItem("token"); // Check if token exists
 
   return (
-    <header className="bg-white shadow-md">
+    <header className="bg-black border-b-2 border-white p-2">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Link
           to="/"
-          className="text-2xl font-bold text-indigo-600 hover:text-indigo-700"
+          className="text-3xl font-semibold  text-white hover:text-indigo-700"
         >
           Task Manager
         </Link>
-        {isLoggedIn ? (
-          <button
-            onClick={handleLogout}
-            className="bg-red-500 px-4 py-2 rounded hover:bg-red-600"
-          >
-            Logout
-          </button>
-        ) : (
-          <button
-            onClick={handleLogin}
-            className="bg-green-500 px-4 py-2 rounded hover:bg-green-600"
-          >
-            Login
-          </button>
-        )}
+        <button
+          onClick={handleLogout}
+          className="bg-white px-4 font-mono text-lg py-2 rounded hover:bg-red-500"
+        >
+          Logout
+        </button>
       </nav>
     </header>
   );

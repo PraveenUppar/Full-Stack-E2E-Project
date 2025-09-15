@@ -1,8 +1,7 @@
-// src/pages/RegisterPage.jsx
-
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { BACKEND_URL } from "../constants.js";
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +9,8 @@ const RegisterPage = () => {
     email: "",
     password: "",
   });
+
+  const API_URL = `${BACKEND_URL}/api/auth/register`;
 
   const [error, setError] = useState("");
 
@@ -20,14 +21,11 @@ const RegisterPage = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default browser form submission
-    setError(""); // Clear previous errors
+    e.preventDefault();
+    setError("");
 
     try {
-      const response = await axios.post(
-        "http://localhost:3000/api/auth/register",
-        formData
-      );
+      const response = await axios.post(API_URL, formData);
       if (response.status === 201) {
         navigate("/login");
       } else {
@@ -42,7 +40,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
+    <div className="flex items-center justify-center min-h-screen bg-black">
       <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center text-gray-900">
           Create an Account
@@ -102,7 +100,6 @@ const RegisterPage = () => {
             />
           </div>
 
-          {/* Display error message if it exists */}
           {error && <p className="text-sm text-red-600">{error}</p>}
 
           <div>
@@ -114,6 +111,12 @@ const RegisterPage = () => {
             </button>
           </div>
         </form>
+        <div className="flex justify-center gap-2">
+          <span>Already have an Account ? </span>
+          <Link to="/login" className="text-blue-600 ">
+            Login
+          </Link>
+        </div>
       </div>
     </div>
   );

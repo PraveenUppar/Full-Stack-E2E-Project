@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
@@ -6,14 +6,10 @@ const ProtectedRoute = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log("Token in localStorage:", token); // Log the token
-
     if (token) {
-      console.log("Redirecting to /home");
-      navigate("/"); // Redirect to HomePage if logged in
+      navigate("/");
     } else {
-      console.log("Redirecting to /login");
-      navigate("/login"); // Redirect to LoginPage if not logged in
+      navigate("/login");
     }
   }, [navigate]);
 
