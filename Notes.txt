@@ -18,28 +18,36 @@ Steps/Phases for projects
 
 
 5. Kubernnetes
-- Local Kubernnetes Cluster
+- Local Kubernnetes Cluster 
 - AWS EKS Cluster
 
 6. CICD
-- Simple EC2 insance Deployment
+- Simple EC2 insance Deployment -- DONE
 - Development Deployment with jenkins and docker
 - Production Deployment with Jenkins and AWS EKS
 
 7. TLS and Domain Name
 
+------------------------------------------------------------------------------------------------------------------------------------------
 
 Types of Deployment 
 
-1. Local Deployment -- DONE 
-2. Local Docker Deployment
-3. AWS ECS Deployment
-4. Local Kubernnetes Deployment
-5. AWS EKS Deployment
-6. EC2 Instance Deployment
-7. Jenkins + AWS ECR
-8. Jenkins + AWS EKS
+- Local Deployment -- DONE 
 
+- Local Docker Deployment -- DONE
+
+- Local Kubernnetes Deployment -- DONE
+    - frontend and backend deployment file
+    - frontend and backend service file
+
+- AWS EKS Deployment
+
+- EC2 Instance Deployment -- DONE
+
+- Jenkins + AWS ECR
+- Jenkins + AWS EKS
+
+------------------------------------------------------------------------------------------------------------------------------------------
 
 Tech Stack 
 
