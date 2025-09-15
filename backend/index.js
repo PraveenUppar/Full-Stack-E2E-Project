@@ -11,10 +11,23 @@ const port = process.env.PORT;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(cors());
+// app.use(cors());
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+  next();
+});
+
+app.use(
+  cors({
+    origin: ["http://localhost:5173"],
+    methods: "GET, POST, PATCH, DELETE, PUT",
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Todo Server is running...");
 });
 
 import authRoutes from "./routes/authRoutes.js";
@@ -25,5 +38,5 @@ app.use("/api/todo", todoRoutes);
 
 app.listen(port, () => {
   connectDB();
-  console.log(`Server listening on port ${port}`);
+  console.log(`Todo Server running on port ${port}`);
 });

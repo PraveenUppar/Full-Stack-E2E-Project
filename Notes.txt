@@ -1,6 +1,6 @@
 Steps/Phases for projects
 
-1. Build the backend
+1. Build the backend -- DONE
 2. Build the frontend
 3. Connect both backend and frontend
 4. Docker
@@ -13,36 +13,48 @@ Steps/Phases for projects
 
 Tech Stack 
 
-frontend = React + Tailwind CSS + Redux 
+frontend = React + Tailwind CSS + Redux
 backend  = Node + Express + Mongo 
 devops - aws + docker + Kubernnetes + cicd
 hosting - go daddy + aws
+caching - redis
 
 
------------------------------------------------------
+----------------------------------------------------
 
 Backend
 
 - models
-1. user model
+1. user model --DONE
     - id
     - name
     - email
     - password
-2. todo model
+2. todo model -- DONE
     - id
-    - title
-    - body
-    - author
+    - user
+    - text
     - date
 
 - routes 
-1. user routes
+1. user routes -- DONE
     -  login + register
-2. todo routes
+2. todo routes -- DONE
     - create + delete + edit
     - Get all todo
 
 - controller
-1. user controller 
+1. user controller -- DONE
     - login 
+    - register 
+2. todo controller -- DONE
+    - create 
+    - delete
+    - edit
+    - get all
+
+
+----------------------------------------------------
+
+
+Frontend 
