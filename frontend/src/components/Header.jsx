@@ -1,7 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Clear the token
+    navigate("/login"); // Redirect to login page
+  };
+
+  const handleLogin = () => {
+    navigate("/login"); // Redirect to login page
+  };
+
+  const isLoggedIn = !!localStorage.getItem("token"); // Check if token exists
+
   return (
     <header className="bg-white shadow-md">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -11,21 +24,21 @@ function Header() {
         >
           Task Manager
         </Link>
-
-        <div className="flex items-center space-x-4">
-          <Link
-            to="/login"
-            className="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
+        {isLoggedIn ? (
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 px-4 py-2 rounded hover:bg-red-600"
           >
-            Sign In
-          </Link>
-          <Link
-            to="/register"
-            className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700"
+            Logout
+          </button>
+        ) : (
+          <button
+            onClick={handleLogin}
+            className="bg-green-500 px-4 py-2 rounded hover:bg-green-600"
           >
-            Register
-          </Link>
-        </div>
+            Login
+          </button>
+        )}
       </nav>
     </header>
   );
