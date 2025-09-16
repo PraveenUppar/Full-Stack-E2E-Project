@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: todo-frontend-service
 spec:
+  type: NodePort
   selector:
     app: todo-frontend
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: NodePort

@@ -18,7 +18,7 @@ Steps/Phases for projects
 
 
 5. Kubernnetes
-- Local Kubernnetes Cluster 
+- Local Kubernnetes Cluster -- DONE
 - AWS EKS Cluster
 
 6. CICD
