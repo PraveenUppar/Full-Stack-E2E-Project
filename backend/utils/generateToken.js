@@ -13,3 +13,5 @@ const generateToken = (res, userId) => {
 };
 
 export default generateToken;
+
+// jwt is the cookie name and token is the value of the jwt-token
