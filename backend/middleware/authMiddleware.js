@@ -10,13 +10,11 @@ const authMiddleware = async (req, res, next) => {
       req.user = await User.findById(decoded.userId).select("-password");
       next();
     } catch (error) {
-      console.error(error);
       res.status(401);
       throw new Error("Not authorized");
     }
   } else {
-    res.status(401);
-    throw new Error("Not authorized");
+    res.status(401).json({ message: "Not authorized" });
   }
 };
 export default authMiddleware;
