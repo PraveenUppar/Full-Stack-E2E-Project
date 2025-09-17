@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BACKEND_URL } from "../constants.js";
+import { Link, useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const [todos, setTodos] = useState([]);
@@ -8,8 +9,21 @@ const HomePage = () => {
   const [editingTodo, setEditingTodo] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   const API_URL = `${BACKEND_URL}/api/todo`;
+
+  const handleLogout = async () => {
+    try {
+      await axios.post(`${BACKEND_URL}/api/auth/logout`);
+      setIsLoggedIn(false);
+      setTodos([]);
+      navigate("/login");
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
+  };
 
   useEffect(() => {
     const fetchTodos = async () => {
@@ -18,8 +32,10 @@ const HomePage = () => {
         setError("");
         const response = await axios.get(API_URL);
         setTodos(response.data);
+        setIsLoggedIn(true);
       } catch (err) {
-        setError("Failed to fetch to-dos.");
+        setIsLoggedIn(false);
+        setError("Failed to fetch tasks. Login required.");
       } finally {
         setLoading(false);
       }
@@ -170,6 +186,23 @@ const HomePage = () => {
             </li>
           ))}
         </ul>
+        <div className="mt-4 text-center">
+          {isLoggedIn ? (
+            <button
+              onClick={handleLogout}
+              className="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 inline-block"
+            >
+              Login
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );
