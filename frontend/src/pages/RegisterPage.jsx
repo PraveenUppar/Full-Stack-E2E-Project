@@ -11,9 +11,7 @@ const RegisterPage = () => {
   });
 
   const API_URL = `${BACKEND_URL}/api/auth/register`;
-
   const [error, setError] = useState("");
-
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -23,7 +21,6 @@ const RegisterPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-
     try {
       const response = await axios.post(API_URL, formData);
       if (response.status === 201) {

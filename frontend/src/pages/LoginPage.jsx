@@ -10,9 +10,7 @@ const LoginPage = () => {
   });
 
   const API_URL = `${BACKEND_URL}/api/auth/login`;
-
   const [error, setError] = useState("");
-
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -22,10 +20,8 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-
     try {
       const response = await axios.post(API_URL, formData);
-
       localStorage.setItem("token", response.data.token);
       if (response.status === 200) {
         navigate("/");
