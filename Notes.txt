@@ -31,14 +31,18 @@ git checkout --> compilation --> gitleak --> fs scan --> unit testing --> sonar 
 
 - AWS EKS Cluster --------------------------------------- 
 
-6. CICD
+6. Monitoring and Metrics
+
+- Grafana
+- Prometheus
+
+7. CICD
 - Simple EC2 insance Deployment ------------------------ DONE
 - Development Deployment with jenkins and docker ------- 
 - Production Deployment with Jenkins and AWS EKS ------- 
 
-7. TLS and Domain Name
 
-8. Running Mongo DB container separate from backend container
+9. Running Mongo DB container separate from backend container
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------

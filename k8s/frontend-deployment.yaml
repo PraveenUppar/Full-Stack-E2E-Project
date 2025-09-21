@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todo-frontend-deployment
+  name: e2e-project-frontend-deployment
   labels:
-    app: todo-frontend
+    app: e2e-project-frontend
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: todo-frontend
+      app: e2e-project-frontend
   template:
     metadata:
       labels:
-        app: todo-frontend
+        app: e2e-project-frontend
     spec:
       containers:
-        - name: todo-frontend-container
-          image: praveenuppar/todo-app-frontend:latest
+        - name: e2e-project-frontend-container
+          image: praveenuppar/e2e-project-frontend-image:v1
           ports:
             - containerPort: 80
           resources:
@@ -26,6 +26,3 @@ spec:
             limits:
               cpu: "500m"
               memory: "256Mi"
-          env:
-            - name: VITE_API_URL
-              value: "http://todo-backend-service:3000"

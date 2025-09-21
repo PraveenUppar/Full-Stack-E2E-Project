@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todo-backend-deployment
+  name: e2e-project-backend-deployment
   labels:
-    app: todo-backend
+    app: e2e-project-backend
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: todo-backend
+      app: e2e-project-backend
   template:
     metadata:
       labels:
-        app: todo-backend
+        app: e2e-project-backend
     spec:
       containers:
-        - name: todo-backend-container
-          image: praveenuppar/todo-app-backend:latest
+        - name: e2e-project-backend-container
+          image: praveenuppar/e2e-project-backend-image:v1
           ports:
-            - containerPort: 3000
+            - containerPort: 5000
           resources:
             requests:
               cpu: "100m"
