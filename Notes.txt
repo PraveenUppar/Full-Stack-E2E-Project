@@ -5,8 +5,8 @@ Steps/Phases for projects
 3. Connect both backend and frontend -- DONE
 
 3.1 CI Pipeline
-    - Using Jenkins
-    - Using Github actions
+    - Using Jenkins -- DONE
+    - Using Github actions -- DONE
 
 git checkout --> compilation --> gitleak --> fs scan --> unit testing --> sonar qube analysis -->  quaity gateway analysis 
 --> build docker image --> scan trivy --> push to docker registry
@@ -14,19 +14,16 @@ git checkout --> compilation --> gitleak --> fs scan --> unit testing --> sonar 
 4. Docker
 
 - Docker File - Frontend and backend -- DONE
-    - create frontend and backend Docker File -- DONE
-    - build the docker file to images -- DONE
-    - Run the images in container with port mapping -- DONE
+    - create frontend and backend Docker File 
+    - build the docker file to images 
+    - Run the images in container with port mapping 
 
-- Docker compose 
-    - same as above but in a single file and command
-
-- Push the image to Docker Registery 
+- Adding Docker in CI Pipeline -- DONE
+    - Push the image to Docker Registery 
     - Tag the image
     - Push the image
 
-- Local Docker Deployment 
-
+- Docker compose -- 
 
 5. Kubernnetes
 
