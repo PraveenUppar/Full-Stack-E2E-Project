@@ -4,48 +4,43 @@ Steps/Phases for projects
 2. Build the frontend -- DONE
 3. Connect both backend and frontend -- DONE
 
-4. Docker -- DONE
+3.1 CI Pipeline
+    - Using Jenkins
+    - Using Github actions
+
+git checkout --> compilation --> gitleak --> fs scan --> unit testing --> sonar qube analysis -->  quaity gateway analysis 
+--> build docker image --> scan trivy --> push to docker registry
+
+4. Docker
+
 - Docker File - Frontend and backend -- DONE
-    - create frontend and backend Docker File 
-    - build the docker file to images
-    - Run the images in container with port mapping
-- Docker compose -- DONE
+    - create frontend and backend Docker File -- DONE
+    - build the docker file to images -- DONE
+    - Run the images in container with port mapping -- DONE
+
+- Docker compose 
     - same as above but in a single file and command
-- Push the image to Docker Registery -- DONE
+
+- Push the image to Docker Registery 
     - Tag the image
     - Push the image
-- Local Docker Deployment -- DONE
+
+- Local Docker Deployment 
 
 
 5. Kubernnetes
-- Local Kubernnetes Cluster -- DONE
+
+- Local Kubernnetes Cluster 
+
 - AWS EKS Cluster
 
 6. CICD
-- Simple EC2 insance Deployment -- DONE
+- Simple EC2 insance Deployment 
 - Development Deployment with jenkins and docker
 - Production Deployment with Jenkins and AWS EKS
 
 7. TLS and Domain Name
 
-------------------------------------------------------------------------------------------------------------------------------------------
-
-Types of Deployment 
-
-- Local Deployment -- DONE 
-
-- Local Docker Deployment -- DONE
-
-- Local Kubernnetes Deployment -- DONE
-    - frontend and backend deployment file
-    - frontend and backend service file
-
-- AWS EKS Deployment
-
-- EC2 Instance Deployment -- DONE
-
-- Jenkins + AWS ECR
-- Jenkins + AWS EKS
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
