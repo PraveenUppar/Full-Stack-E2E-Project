@@ -1,5 +1,4 @@
 version: "3.8"
-
 services:
   backend:
     build: ./backend
@@ -16,3 +15,13 @@ services:
     restart: unless-stopped
     depends_on:
       - backend
+
+  # mongodb:
+  #   image: mongo:latest
+  #   container_name: mongodb-container
+  #   restart: unless-stopped
+  #   volumes:
+  #     - mongo-data:/data/db
+
+  # volumes:
+  #   mongo-data:

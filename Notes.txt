@@ -33,10 +33,12 @@ git checkout --> compilation --> gitleak --> fs scan --> unit testing --> sonar 
 
 6. CICD
 - Simple EC2 insance Deployment ------------------------ DONE
-- Development Deployment with jenkins and docker -------
+- Development Deployment with jenkins and docker ------- 
 - Production Deployment with Jenkins and AWS EKS ------- 
 
 7. TLS and Domain Name
+
+8. Running Mongo DB container separate from backend container
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
