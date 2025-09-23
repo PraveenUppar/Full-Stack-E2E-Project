@@ -19,6 +19,11 @@ spec:
           image: praveenuppar/e2e-project-backend-image:v1
           ports:
             - containerPort: 5000
+          envFrom:
+            - configMapRef:
+                name: backend-config
+            - secretRef:
+                name: backend-secrets
           resources:
             requests:
               cpu: "100m"
